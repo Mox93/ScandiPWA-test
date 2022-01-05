@@ -1,0 +1,84 @@
+.ProgressBar {
+  background: var(--breadcrumbs-background);
+  min-height: var(--breadcrumbs-height);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+
+  .MileStone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 50%;
+
+    &.active {
+      opacity: 100%;
+      transition-delay: 0.9s;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-in;
+      transition-property: opacity;
+
+      .Badge {
+        background-color: var(--primary-base-color);
+        color: var(--secondary-base-color);
+        transition-delay: 0.9s;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-in;
+        transition-property: background-color, color;
+      }
+    }
+
+    .Badge {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--secondary-dark-color);
+      color: var(--body-content-color);
+      border-radius: 50%;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .CheckMark {
+        width: 12px;
+        height: 6px;
+        transform: rotate(135deg);
+        border-right: 2px solid var(--secondary-base-color);
+        border-top: 2px solid var(--secondary-base-color);
+      }
+    }
+
+    .Title {
+      position: absolute;
+      white-space: nowrap;
+      top: 4rem;
+    }
+  }
+
+  .Path {
+    flex-grow: 1;
+    height: 5px;
+    border-radius: 3px;
+    background-color: var(--secondary-dark-color);
+    overflow: hidden;
+    opacity: 50%;
+
+    .Filler {
+      width: 0;
+      height: 5px;
+      background-color: var(--primary-base-color);
+      position: absolute;
+    }
+
+    &.active {
+      opacity: 100%;
+
+      .Filler {
+        width: 100%;
+        transition: width 1s ease-in-out;
+      }
+    }
+  }
+}
